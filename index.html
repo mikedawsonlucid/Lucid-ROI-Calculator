@@ -140,14 +140,32 @@
                             </h3>
                         </div>
                         <div class="grid md:grid-cols-2 gap-6">
-                            <div class="bg-white border-2 border-emerald-200 rounded-xl p-6 shadow-sm">
-                                <h4 class="text-lg font-bold text-gray-900 mb-4">Meeting Efficiency</h4>
+                            <div id="meetingEfficiencyCard" class="bg-white border-2 border-emerald-200 rounded-xl p-6 shadow-sm transition-all">
+                                <div class="flex items-center justify-between mb-4">
+                                    <h4 class="text-lg font-bold text-gray-900">Meeting Efficiency</h4>
+                                    <button onclick="toggleSection('meetingEfficiency')" id="meetingEfficiencyBtn" class="flex items-center gap-2 px-3 py-1 rounded-md text-sm font-medium bg-blue-100 text-blue-700 hover:bg-blue-200 transition-all">
+                                        <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                            <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
+                                            <circle cx="12" cy="12" r="3"/>
+                                        </svg>
+                                        Enabled
+                                    </button>
+                                </div>
                                 <p class="text-gray-600 mb-4 font-medium">Asynchronous brainstorming replaces long meetings</p>
                                 <div class="text-2xl font-bold text-emerald-600 mb-1" id="meetingHours">100 hours</div>
                                 <div class="text-lg font-medium text-gray-500" id="meetingValue">$4,087 value</div>
                             </div>
-                            <div class="bg-white border-2 border-emerald-200 rounded-xl p-6 shadow-sm">
-                                <h4 class="text-lg font-bold text-gray-900 mb-4">Meeting Reduction</h4>
+                            <div id="meetingReductionCard" class="bg-white border-2 border-emerald-200 rounded-xl p-6 shadow-sm transition-all">
+                                <div class="flex items-center justify-between mb-4">
+                                    <h4 class="text-lg font-bold text-gray-900">Meeting Reduction</h4>
+                                    <button onclick="toggleSection('meetingReduction')" id="meetingReductionBtn" class="flex items-center gap-2 px-3 py-1 rounded-md text-sm font-medium bg-blue-100 text-blue-700 hover:bg-blue-200 transition-all">
+                                        <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                            <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
+                                            <circle cx="12" cy="12" r="3"/>
+                                        </svg>
+                                        Enabled
+                                    </button>
+                                </div>
                                 <p class="text-gray-600 mb-4 font-medium">83% reduction in cross-functional meetings</p>
                                 <div class="text-2xl font-bold text-emerald-600 mb-1" id="reductionHours">500 hours</div>
                                 <div class="text-lg font-medium text-gray-500" id="reductionValue">$20,435 value</div>
@@ -166,13 +184,31 @@
                             </h3>
                         </div>
                         <div class="grid md:grid-cols-2 gap-6">
-                            <div class="bg-white border-2 border-blue-200 rounded-xl p-6 shadow-sm">
-                                <h4 class="text-lg font-bold text-gray-900 mb-4">Virtual Events</h4>
+                            <div id="virtualEventsCard" class="bg-white border-2 border-blue-200 rounded-xl p-6 shadow-sm transition-all">
+                                <div class="flex items-center justify-between mb-4">
+                                    <h4 class="text-lg font-bold text-gray-900">Virtual Events</h4>
+                                    <button onclick="toggleSection('virtualEvents')" id="virtualEventsBtn" class="flex items-center gap-2 px-3 py-1 rounded-md text-sm font-medium bg-blue-100 text-blue-700 hover:bg-blue-200 transition-all">
+                                        <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                            <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
+                                            <circle cx="12" cy="12" r="3"/>
+                                        </svg>
+                                        Enabled
+                                    </button>
+                                </div>
                                 <p class="text-gray-600 mb-4 font-medium">Replace in-person events with virtual collaboration</p>
                                 <div class="text-2xl font-bold text-blue-600" id="virtualEvents">$6,000</div>
                             </div>
-                            <div class="bg-white border-2 border-blue-200 rounded-xl p-6 shadow-sm">
-                                <h4 class="text-lg font-bold text-gray-900 mb-4">Workshop Collaboration</h4>
+                            <div id="workshopsCard" class="bg-white border-2 border-blue-200 rounded-xl p-6 shadow-sm transition-all">
+                                <div class="flex items-center justify-between mb-4">
+                                    <h4 class="text-lg font-bold text-gray-900">Workshop Collaboration</h4>
+                                    <button onclick="toggleSection('workshops')" id="workshopsBtn" class="flex items-center gap-2 px-3 py-1 rounded-md text-sm font-medium bg-blue-100 text-blue-700 hover:bg-blue-200 transition-all">
+                                        <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                            <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
+                                            <circle cx="12" cy="12" r="3"/>
+                                        </svg>
+                                        Enabled
+                                    </button>
+                                </div>
                                 <p class="text-gray-600 mb-4 font-medium">Online workshops replace travel</p>
                                 <div class="text-2xl font-bold text-blue-600" id="workshops">$3,500</div>
                             </div>
@@ -196,6 +232,52 @@
     </div>
 
     <script>
+        // Section toggle states
+        const enabledSections = {
+            meetingEfficiency: true,
+            meetingReduction: true,
+            virtualEvents: true,
+            workshops: true,
+            supportTimeReduction: true,
+            brainstormingEfficiency: true,
+            onboardingTimeReduction: true,
+            adminTimeReduction: true,
+            pipelineGeneration: true
+        };
+
+        function toggleSection(section) {
+            enabledSections[section] = !enabledSections[section];
+            const card = document.getElementById(section + 'Card');
+            const btn = document.getElementById(section + 'Btn');
+            
+            if (enabledSections[section]) {
+                card.className = card.className.replace('border-gray-200 opacity-50', 'border-emerald-200 shadow-sm').replace('border-blue-200 opacity-50', 'border-blue-200 shadow-sm');
+                btn.className = 'flex items-center gap-2 px-3 py-1 rounded-md text-sm font-medium bg-blue-100 text-blue-700 hover:bg-blue-200 transition-all';
+                btn.innerHTML = `
+                    <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
+                        <circle cx="12" cy="12" r="3"/>
+                    </svg>
+                    Enabled
+                `;
+            } else {
+                if (section === 'meetingEfficiency' || section === 'meetingReduction') {
+                    card.className = card.className.replace('border-emerald-200 shadow-sm', 'border-gray-200 opacity-50');
+                } else {
+                    card.className = card.className.replace('border-blue-200 shadow-sm', 'border-gray-200 opacity-50');
+                }
+                btn.className = 'flex items-center gap-2 px-3 py-1 rounded-md text-sm font-medium bg-gray-100 text-gray-500 hover:bg-gray-200 transition-all';
+                btn.innerHTML = `
+                    <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24"/>
+                        <line x1="1" y1="1" x2="23" y2="23"/>
+                    </svg>
+                    Disabled
+                `;
+            }
+            calculate();
+        }
+
         function formatCurrency(amount) {
             return new Intl.NumberFormat('en-US', {
                 style: 'currency',
@@ -218,30 +300,30 @@
             document.getElementById('hourlyRate').textContent = formatCurrency(hourlyRate);
 
             // Time Savings Calculations
-            const meetingEfficiencyHours = users * 10;
+            const meetingEfficiencyHours = enabledSections.meetingEfficiency ? users * 10 : 0;
             const meetingEfficiencyValue = meetingEfficiencyHours * hourlyRate;
             
-            const meetingReductionHours = users * 50;
+            const meetingReductionHours = enabledSections.meetingReduction ? users * 50 : 0;
             const meetingReductionValue = meetingReductionHours * hourlyRate;
 
             // Travel Cost Savings
-            const virtualEventsSavings = users * 0.3 * 2000 * 1;
-            const workshopSavings = users * 0.2 * 3500 * 0.5;
+            const virtualEventsSavings = enabledSections.virtualEvents ? users * 0.3 * 2000 * 1 : 0;
+            const workshopSavings = enabledSections.workshops ? users * 0.2 * 3500 * 0.5 : 0;
 
             // Productivity Improvements
-            const supportTimeHours = users * 2.5 * 52;
+            const supportTimeHours = enabledSections.supportTimeReduction ? users * 2.5 * 52 : 0;
             const supportTimeValue = supportTimeHours * hourlyRate;
             
-            const brainstormingHours = users * 8 * 12 * 0.5;
+            const brainstormingHours = enabledSections.brainstormingEfficiency ? users * 8 * 12 * 0.5 : 0;
             const brainstormingValue = brainstormingHours * hourlyRate;
 
             // Additional ROI Categories
-            const newHires = Math.ceil(users * 0.15);
+            const newHires = enabledSections.onboardingTimeReduction ? Math.ceil(users * 0.15) : 0;
             const onboardingSavings = newHires * 2560;
             
-            const adminSavings = users * 0.01 * 11 * 52 * hourlyRate;
+            const adminSavings = enabledSections.adminTimeReduction ? users * 0.01 * 11 * 52 * hourlyRate : 0;
             
-            const salesReps = Math.ceil(users * 0.05);
+            const salesReps = enabledSections.pipelineGeneration ? Math.ceil(users * 0.05) : 0;
             const pipelineIncrease = salesReps * 75000 * 0.4 * 12;
 
             // Totals
