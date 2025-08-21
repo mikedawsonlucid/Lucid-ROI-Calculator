@@ -35,6 +35,110 @@
                             <line x1="8" y1="18" x2="8" y2="18"/>
                         </svg>
                     </div>
+
+                    <!-- Productivity Improvements -->
+                    <div>
+                        <div class="flex items-center justify-between mb-6">
+                            <h3 class="text-2xl font-bold text-gray-900 flex items-center">
+                                <svg class="w-6 h-6 mr-3 text-purple-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <polygon points="13,2 3,14 12,14 11,22 21,10 12,10 13,2"/>
+                                </svg>
+                                Productivity Improvements
+                            </h3>
+                        </div>
+                        <div class="grid md:grid-cols-2 gap-6">
+                            <div id="supportTimeReductionCard" class="bg-white border-2 border-purple-200 rounded-xl p-6 shadow-sm transition-all">
+                                <div class="flex items-center justify-between mb-4">
+                                    <h4 class="text-lg font-bold text-gray-900">Support Time Reduction</h4>
+                                    <button onclick="toggleSection('supportTimeReduction')" id="supportTimeReductionBtn" class="flex items-center gap-2 px-3 py-1 rounded-md text-sm font-medium bg-blue-100 text-blue-700 hover:bg-blue-200 transition-all">
+                                        <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                            <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
+                                            <circle cx="12" cy="12" r="3"/>
+                                        </svg>
+                                        Enabled
+                                    </button>
+                                </div>
+                                <p class="text-gray-600 mb-4 font-medium">Visual diagrams reduce triage time by 2.5 hours/week</p>
+                                <div class="text-2xl font-bold text-purple-600 mb-1" id="supportTimeHours">130 hours</div>
+                                <div class="text-lg font-medium text-gray-500" id="supportTimeValue">$5,313 value</div>
+                            </div>
+                            <div id="brainstormingEfficiencyCard" class="bg-white border-2 border-purple-200 rounded-xl p-6 shadow-sm transition-all">
+                                <div class="flex items-center justify-between mb-4">
+                                    <h4 class="text-lg font-bold text-gray-900">Brainstorming Efficiency</h4>
+                                    <button onclick="toggleSection('brainstormingEfficiency')" id="brainstormingEfficiencyBtn" class="flex items-center gap-2 px-3 py-1 rounded-md text-sm font-medium bg-blue-100 text-blue-700 hover:bg-blue-200 transition-all">
+                                        <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                            <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
+                                            <circle cx="12" cy="12" r="3"/>
+                                        </svg>
+                                        Enabled
+                                    </button>
+                                </div>
+                                <p class="text-gray-600 mb-4 font-medium">2.5x more productive brainstorming sessions</p>
+                                <div class="text-2xl font-bold text-purple-600 mb-1" id="brainstormingHours">48 hours</div>
+                                <div class="text-lg font-medium text-gray-500" id="brainstormingValue">$1,962 value</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Additional ROI Categories -->
+                    <div>
+                        <div class="flex items-center justify-between mb-6">
+                            <h3 class="text-2xl font-bold text-gray-900 flex items-center">
+                                <svg class="w-6 h-6 mr-3 text-indigo-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M3 3v18h18"/>
+                                    <path d="M18 17V9"/>
+                                    <path d="M13 17V5"/>
+                                    <path d="M8 17v-3"/>
+                                </svg>
+                                Additional ROI Benefits
+                            </h3>
+                        </div>
+                        <div class="grid md:grid-cols-3 gap-6">
+                            <div id="onboardingTimeReductionCard" class="bg-white border-2 border-indigo-200 rounded-xl p-6 shadow-sm transition-all">
+                                <div class="flex items-center justify-between mb-4">
+                                    <h4 class="text-lg font-bold text-gray-900">Faster Onboarding</h4>
+                                    <button onclick="toggleSection('onboardingTimeReduction')" id="onboardingTimeReductionBtn" class="flex items-center gap-2 px-3 py-1 rounded-md text-sm font-medium bg-blue-100 text-blue-700 hover:bg-blue-200 transition-all">
+                                        <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                            <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
+                                            <circle cx="12" cy="12" r="3"/>
+                                        </svg>
+                                        Enabled
+                                    </button>
+                                </div>
+                                <p class="text-gray-600 mb-4 font-medium">Reduce engineer onboarding by 2-3 days</p>
+                                <div class="text-2xl font-bold text-indigo-600 mb-1" id="onboardingSavings">$5,120</div>
+                                <div class="text-sm font-medium text-gray-500" id="newHires">2 new hires/year</div>
+                            </div>
+                            <div id="adminTimeReductionCard" class="bg-white border-2 border-indigo-200 rounded-xl p-6 shadow-sm transition-all">
+                                <div class="flex items-center justify-between mb-4">
+                                    <h4 class="text-lg font-bold text-gray-900">Admin Time Reduction</h4>
+                                    <button onclick="toggleSection('adminTimeReduction')" id="adminTimeReductionBtn" class="flex items-center gap-2 px-3 py-1 rounded-md text-sm font-medium bg-blue-100 text-blue-700 hover:bg-blue-200 transition-all">
+                                        <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                            <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
+                                            <circle cx="12" cy="12" r="3"/>
+                                        </svg>
+                                        Enabled
+                                    </button>
+                                </div>
+                                <p class="text-gray-600 mb-4 font-medium">95% reduction in administrative tasks</p>
+                                <div class="text-2xl font-bold text-indigo-600" id="adminSavings">$498</div>
+                            </div>
+                            <div id="pipelineGenerationCard" class="bg-white border-2 border-indigo-200 rounded-xl p-6 shadow-sm transition-all">
+                                <div class="flex items-center justify-between mb-4">
+                                    <h4 class="text-lg font-bold text-gray-900">Pipeline Generation</h4>
+                                    <button onclick="toggleSection('pipelineGeneration')" id="pipelineGenerationBtn" class="flex items-center gap-2 px-3 py-1 rounded-md text-sm font-medium bg-blue-100 text-blue-700 hover:bg-blue-200 transition-all">
+                                        <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                            <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
+                                            <circle cx="12" cy="12" r="3"/>
+                                        </svg>
+                                        Enabled
+                                    </button>
+                                </div>
+                                <p class="text-gray-600 mb-4 font-medium">30-50% more time on pipeline activities</p>
+                                <div class="text-2xl font-bold text-indigo-600 mb-1" id="pipelineIncrease">$144,000</div>
+                                <div class="text-sm font-medium text-gray-500" id="salesReps">1 sales reps</div>
+                            </div>
+                        </div>
                     <div>
                         <h1 class="text-3xl font-bold tracking-tight">ROI Calculator</h1>
                         <p class="text-blue-100 text-sm font-medium">Lucid Visual Collaboration Suite</p>
@@ -251,7 +355,17 @@
             const btn = document.getElementById(section + 'Btn');
             
             if (enabledSections[section]) {
-                card.className = card.className.replace('border-gray-200 opacity-50', 'border-emerald-200 shadow-sm').replace('border-blue-200 opacity-50', 'border-blue-200 shadow-sm');
+                // Determine the correct border color based on section
+                let borderClass = 'border-emerald-200 shadow-sm';
+                if (section === 'virtualEvents' || section === 'workshops') {
+                    borderClass = 'border-blue-200 shadow-sm';
+                } else if (section === 'supportTimeReduction' || section === 'brainstormingEfficiency') {
+                    borderClass = 'border-purple-200 shadow-sm';
+                } else if (section === 'onboardingTimeReduction' || section === 'adminTimeReduction' || section === 'pipelineGeneration') {
+                    borderClass = 'border-indigo-200 shadow-sm';
+                }
+                
+                card.className = card.className.replace('border-gray-200 opacity-50', borderClass);
                 btn.className = 'flex items-center gap-2 px-3 py-1 rounded-md text-sm font-medium bg-blue-100 text-blue-700 hover:bg-blue-200 transition-all';
                 btn.innerHTML = `
                     <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -261,11 +375,7 @@
                     Enabled
                 `;
             } else {
-                if (section === 'meetingEfficiency' || section === 'meetingReduction') {
-                    card.className = card.className.replace('border-emerald-200 shadow-sm', 'border-gray-200 opacity-50');
-                } else {
-                    card.className = card.className.replace('border-blue-200 shadow-sm', 'border-gray-200 opacity-50');
-                }
+                card.className = card.className.replace(/border-\w+-200 shadow-sm/, 'border-gray-200 opacity-50');
                 btn.className = 'flex items-center gap-2 px-3 py-1 rounded-md text-sm font-medium bg-gray-100 text-gray-500 hover:bg-gray-200 transition-all';
                 btn.innerHTML = `
                     <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -343,6 +453,17 @@
             
             document.getElementById('virtualEvents').textContent = formatCurrency(virtualEventsSavings);
             document.getElementById('workshops').textContent = formatCurrency(workshopSavings);
+            
+            document.getElementById('supportTimeHours').textContent = formatHours(supportTimeHours) + ' hours';
+            document.getElementById('supportTimeValue').textContent = formatCurrency(supportTimeValue) + ' value';
+            document.getElementById('brainstormingHours').textContent = formatHours(brainstormingHours) + ' hours';
+            document.getElementById('brainstormingValue').textContent = formatCurrency(brainstormingValue) + ' value';
+            
+            document.getElementById('onboardingSavings').textContent = formatCurrency(onboardingSavings);
+            document.getElementById('newHires').textContent = newHires + ' new hires/year';
+            document.getElementById('adminSavings').textContent = formatCurrency(adminSavings);
+            document.getElementById('pipelineIncrease').textContent = formatCurrency(pipelineIncrease);
+            document.getElementById('salesReps').textContent = salesReps + ' sales reps';
         }
 
         // Calculate on page load
