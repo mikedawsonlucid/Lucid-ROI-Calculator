@@ -35,6 +35,187 @@
                             <line x1="8" y1="18" x2="8" y2="18"/>
                         </svg>
                     </div>
+                    <div>
+                        <h1 class="text-3xl font-bold tracking-tight">ROI Calculator</h1>
+                        <p class="text-blue-100 text-sm font-medium">Lucid Visual Collaboration Suite</p>
+                    </div>
+                </div>
+                <p class="text-blue-50 text-lg font-normal leading-relaxed max-w-3xl">
+                    Calculate your potential return on investment with Lucid's visual collaboration platform. 
+                    Toggle sections on or off based on your specific use cases and organizational needs.
+                </p>
+            </div>
+
+            <!-- Input Section -->
+            <div class="p-8 bg-gray-50 border-b border-gray-100">
+                <div class="grid md:grid-cols-2 gap-8 max-w-2xl">
+                    <div>
+                        <label class="block text-sm font-semibold text-gray-900 mb-3">
+                            <svg class="inline w-4 h-4 mr-2 text-blue-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/>
+                                <circle cx="9" cy="7" r="4"/>
+                                <path d="M22 21v-2a4 4 0 0 0-3-3.87"/>
+                                <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+                            </svg>
+                            Number of Lucid Users
+                        </label>
+                        <input
+                            type="number"
+                            id="users"
+                            value="10"
+                            min="1"
+                            max="10000"
+                            class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-lg font-medium bg-white"
+                            onchange="calculate()"
+                        />
+                    </div>
+                    <div>
+                        <label class="block text-sm font-semibold text-gray-900 mb-3">
+                            <svg class="inline w-4 h-4 mr-2 text-blue-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <line x1="12" y1="1" x2="12" y2="23"/>
+                                <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
+                            </svg>
+                            Average Annual Salary
+                        </label>
+                        <input
+                            type="number"
+                            id="salary"
+                            value="85000"
+                            min="30000"
+                            max="300000"
+                            class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-lg font-medium bg-white"
+                            onchange="calculate()"
+                        />
+                        <p class="text-sm text-gray-600 mt-2 font-medium">
+                            Hourly rate: <span id="hourlyRate">$40.87</span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Results Summary -->
+            <div class="p-8">
+                <div class="grid md:grid-cols-3 gap-6 mb-12">
+                    <div class="bg-gradient-to-br from-emerald-500 to-emerald-600 text-white p-8 rounded-xl">
+                        <div class="flex items-center justify-between mb-3">
+                            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="12" cy="12" r="10"/>
+                                <polyline points="12,6 12,12 16,14"/>
+                            </svg>
+                            <span class="text-3xl font-bold tracking-tight" id="totalHours">600</span>
+                        </div>
+                        <p class="text-emerald-50 font-medium text-lg">Total Hours Saved Annually</p>
+                    </div>
+                    <div class="bg-gradient-to-br from-blue-500 to-blue-600 text-white p-8 rounded-xl">
+                        <div class="flex items-center justify-between mb-3">
+                            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <line x1="12" y1="1" x2="12" y2="23"/>
+                                <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
+                            </svg>
+                            <span class="text-3xl font-bold tracking-tight" id="totalSavings">$34,520</span>
+                        </div>
+                        <p class="text-blue-50 font-medium text-lg">Cost Savings & Efficiency</p>
+                    </div>
+                    <div class="bg-gradient-to-br from-purple-500 to-purple-600 text-white p-8 rounded-xl">
+                        <div class="flex items-center justify-between mb-3">
+                            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="22,7 13.5,15.5 8.5,10.5 2,17"/>
+                                <polyline points="16,7 22,7 22,13"/>
+                            </svg>
+                            <span class="text-3xl font-bold tracking-tight" id="totalROI">$178,520</span>
+                        </div>
+                        <p class="text-purple-50 font-medium text-lg">Total Annual ROI</p>
+                    </div>
+                </div>
+
+                <!-- Detailed Breakdown -->
+                <div class="space-y-12">
+                    <!-- Time Savings -->
+                    <div>
+                        <div class="flex items-center justify-between mb-6">
+                            <h3 class="text-2xl font-bold text-gray-900 flex items-center">
+                                <svg class="w-6 h-6 mr-3 text-emerald-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <circle cx="12" cy="12" r="10"/>
+                                    <polyline points="12,6 12,12 16,14"/>
+                                </svg>
+                                Time Savings
+                            </h3>
+                        </div>
+                        <div class="grid md:grid-cols-2 gap-6">
+                            <div id="meetingEfficiencyCard" class="bg-white border-2 border-emerald-200 rounded-xl p-6 shadow-sm transition-all">
+                                <div class="flex items-center justify-between mb-4">
+                                    <h4 class="text-lg font-bold text-gray-900">Meeting Efficiency</h4>
+                                    <button onclick="toggleSection('meetingEfficiency')" id="meetingEfficiencyBtn" class="flex items-center gap-2 px-3 py-1 rounded-md text-sm font-medium bg-blue-100 text-blue-700 hover:bg-blue-200 transition-all">
+                                        <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                            <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
+                                            <circle cx="12" cy="12" r="3"/>
+                                        </svg>
+                                        Enabled
+                                    </button>
+                                </div>
+                                <p class="text-gray-600 mb-4 font-medium">Asynchronous brainstorming replaces long meetings</p>
+                                <div class="text-2xl font-bold text-emerald-600 mb-1" id="meetingHours">100 hours</div>
+                                <div class="text-lg font-medium text-gray-500" id="meetingValue">$4,087 value</div>
+                            </div>
+                            <div id="meetingReductionCard" class="bg-white border-2 border-emerald-200 rounded-xl p-6 shadow-sm transition-all">
+                                <div class="flex items-center justify-between mb-4">
+                                    <h4 class="text-lg font-bold text-gray-900">Meeting Reduction</h4>
+                                    <button onclick="toggleSection('meetingReduction')" id="meetingReductionBtn" class="flex items-center gap-2 px-3 py-1 rounded-md text-sm font-medium bg-blue-100 text-blue-700 hover:bg-blue-200 transition-all">
+                                        <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                            <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
+                                            <circle cx="12" cy="12" r="3"/>
+                                        </svg>
+                                        Enabled
+                                    </button>
+                                </div>
+                                <p class="text-gray-600 mb-4 font-medium">83% reduction in cross-functional meetings</p>
+                                <div class="text-2xl font-bold text-emerald-600 mb-1" id="reductionHours">500 hours</div>
+                                <div class="text-lg font-medium text-gray-500" id="reductionValue">$20,435 value</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Travel Cost Savings -->
+                    <div>
+                        <div class="flex items-center justify-between mb-6">
+                            <h3 class="text-2xl font-bold text-gray-900 flex items-center">
+                                <svg class="w-6 h-6 mr-3 text-blue-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M17.8 19.2 16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2c-.5-.1-.9.1-1.1.5l-.3.5c-.2.5-.1 1 .3 1.3L9 12l-2 3H4l-1 1 3 2 2 3 1-1v-3l3-2 3.5 5.3c.3.4.8.5 1.3.3l.5-.2c.4-.3.6-.7.5-1.2z"/>
+                                </svg>
+                                Travel Cost Savings
+                            </h3>
+                        </div>
+                        <div class="grid md:grid-cols-2 gap-6">
+                            <div id="virtualEventsCard" class="bg-white border-2 border-blue-200 rounded-xl p-6 shadow-sm transition-all">
+                                <div class="flex items-center justify-between mb-4">
+                                    <h4 class="text-lg font-bold text-gray-900">Virtual Events</h4>
+                                    <button onclick="toggleSection('virtualEvents')" id="virtualEventsBtn" class="flex items-center gap-2 px-3 py-1 rounded-md text-sm font-medium bg-blue-100 text-blue-700 hover:bg-blue-200 transition-all">
+                                        <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                            <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
+                                            <circle cx="12" cy="12" r="3"/>
+                                        </svg>
+                                        Enabled
+                                    </button>
+                                </div>
+                                <p class="text-gray-600 mb-4 font-medium">Replace in-person events with virtual collaboration</p>
+                                <div class="text-2xl font-bold text-blue-600" id="virtualEvents">$6,000</div>
+                            </div>
+                            <div id="workshopsCard" class="bg-white border-2 border-blue-200 rounded-xl p-6 shadow-sm transition-all">
+                                <div class="flex items-center justify-between mb-4">
+                                    <h4 class="text-lg font-bold text-gray-900">Workshop Collaboration</h4>
+                                    <button onclick="toggleSection('workshops')" id="workshopsBtn" class="flex items-center gap-2 px-3 py-1 rounded-md text-sm font-medium bg-blue-100 text-blue-700 hover:bg-blue-200 transition-all">
+                                        <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                            <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
+                                            <circle cx="12" cy="12" r="3"/>
+                                        </svg>
+                                        Enabled
+                                    </button>
+                                </div>
+                                <p class="text-gray-600 mb-4 font-medium">Online workshops replace travel</p>
+                                <div class="text-2xl font-bold text-blue-600" id="workshops">$3,500</div>
+                            </div>
+                        </div>
+                    </div>
 
                     <!-- Productivity Improvements -->
                     <div>
@@ -139,184 +320,6 @@
                                 <div class="text-sm font-medium text-gray-500" id="salesReps">1 sales reps</div>
                             </div>
                         </div>
-                    <div>
-                        <h1 class="text-3xl font-bold tracking-tight">ROI Calculator</h1>
-                        <p class="text-blue-100 text-sm font-medium">Lucid Visual Collaboration Suite</p>
-                    </div>
-                </div>
-                <p class="text-blue-50 text-lg font-normal leading-relaxed max-w-3xl">
-                    Calculate your potential return on investment with Lucid's visual collaboration platform.
-                </p>
-            </div>
-
-            <!-- Input Section -->
-            <div class="p-8 bg-gray-50 border-b border-gray-100">
-                <div class="grid md:grid-cols-2 gap-8 max-w-2xl">
-                    <div>
-                        <label class="block text-sm font-semibold text-gray-900 mb-3">
-                            <svg class="inline w-4 h-4 mr-2 text-blue-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/>
-                                <circle cx="9" cy="7" r="4"/>
-                                <path d="M22 21v-2a4 4 0 0 0-3-3.87"/>
-                                <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
-                            </svg>
-                            Number of Lucid Users
-                        </label>
-                        <input
-                            type="number"
-                            id="users"
-                            value="10"
-                            min="1"
-                            max="10000"
-                            class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-lg font-medium bg-white"
-                            onchange="calculate()"
-                        />
-                    </div>
-                    <div>
-                        <label class="block text-sm font-semibold text-gray-900 mb-3">
-                            <svg class="inline w-4 h-4 mr-2 text-blue-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <line x1="12" y1="1" x2="12" y2="23"/>
-                                <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
-                            </svg>
-                            Average Annual Salary
-                        </label>
-                        <input
-                            type="number"
-                            id="salary"
-                            value="85000"
-                            min="30000"
-                            max="300000"
-                            class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-lg font-medium bg-white"
-                            onchange="calculate()"
-                        />
-                        <p class="text-sm text-gray-600 mt-2 font-medium">
-                            Hourly rate: <span id="hourlyRate">$40.87</span>
-                        </p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Results Summary -->
-            <div class="p-8">
-                <div class="grid md:grid-cols-3 gap-6 mb-12">
-                    <div class="bg-gradient-to-br from-emerald-500 to-emerald-600 text-white p-8 rounded-xl">
-                        <div class="flex items-center justify-between mb-3">
-                            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <circle cx="12" cy="12" r="10"/>
-                                <polyline points="12,6 12,12 16,14"/>
-                            </svg>
-                            <span class="text-3xl font-bold tracking-tight" id="totalHours">600</span>
-                        </div>
-                        <p class="text-emerald-50 font-medium text-lg">Total Hours Saved Annually</p>
-                    </div>
-                    <div class="bg-gradient-to-br from-blue-500 to-blue-600 text-white p-8 rounded-xl">
-                        <div class="flex items-center justify-between mb-3">
-                            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <line x1="12" y1="1" x2="12" y2="23"/>
-                                <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
-                            </svg>
-                            <span class="text-3xl font-bold tracking-tight" id="totalSavings">$34,520</span>
-                        </div>
-                        <p class="text-blue-50 font-medium text-lg">Cost Savings & Efficiency</p>
-                    </div>
-                    <div class="bg-gradient-to-br from-purple-500 to-purple-600 text-white p-8 rounded-xl">
-                        <div class="flex items-center justify-between mb-3">
-                            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <polyline points="22,7 13.5,15.5 8.5,10.5 2,17"/>
-                                <polyline points="16,7 22,7 22,13"/>
-                            </svg>
-                            <span class="text-3xl font-bold tracking-tight" id="totalROI">$178,520</span>
-                        </div>
-                        <p class="text-purple-50 font-medium text-lg">Total Annual ROI</p>
-                    </div>
-                </div>
-
-                <!-- Time Savings Section -->
-                <div class="space-y-12">
-                    <div>
-                        <div class="flex items-center justify-between mb-6">
-                            <h3 class="text-2xl font-bold text-gray-900 flex items-center">
-                                <svg class="w-6 h-6 mr-3 text-emerald-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <circle cx="12" cy="12" r="10"/>
-                                    <polyline points="12,6 12,12 16,14"/>
-                                </svg>
-                                Time Savings
-                            </h3>
-                        </div>
-                        <div class="grid md:grid-cols-2 gap-6">
-                            <div id="meetingEfficiencyCard" class="bg-white border-2 border-emerald-200 rounded-xl p-6 shadow-sm transition-all">
-                                <div class="flex items-center justify-between mb-4">
-                                    <h4 class="text-lg font-bold text-gray-900">Meeting Efficiency</h4>
-                                    <button onclick="toggleSection('meetingEfficiency')" id="meetingEfficiencyBtn" class="flex items-center gap-2 px-3 py-1 rounded-md text-sm font-medium bg-blue-100 text-blue-700 hover:bg-blue-200 transition-all">
-                                        <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                            <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
-                                            <circle cx="12" cy="12" r="3"/>
-                                        </svg>
-                                        Enabled
-                                    </button>
-                                </div>
-                                <p class="text-gray-600 mb-4 font-medium">Asynchronous brainstorming replaces long meetings</p>
-                                <div class="text-2xl font-bold text-emerald-600 mb-1" id="meetingHours">100 hours</div>
-                                <div class="text-lg font-medium text-gray-500" id="meetingValue">$4,087 value</div>
-                            </div>
-                            <div id="meetingReductionCard" class="bg-white border-2 border-emerald-200 rounded-xl p-6 shadow-sm transition-all">
-                                <div class="flex items-center justify-between mb-4">
-                                    <h4 class="text-lg font-bold text-gray-900">Meeting Reduction</h4>
-                                    <button onclick="toggleSection('meetingReduction')" id="meetingReductionBtn" class="flex items-center gap-2 px-3 py-1 rounded-md text-sm font-medium bg-blue-100 text-blue-700 hover:bg-blue-200 transition-all">
-                                        <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                            <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
-                                            <circle cx="12" cy="12" r="3"/>
-                                        </svg>
-                                        Enabled
-                                    </button>
-                                </div>
-                                <p class="text-gray-600 mb-4 font-medium">83% reduction in cross-functional meetings</p>
-                                <div class="text-2xl font-bold text-emerald-600 mb-1" id="reductionHours">500 hours</div>
-                                <div class="text-lg font-medium text-gray-500" id="reductionValue">$20,435 value</div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Travel Cost Savings -->
-                    <div>
-                        <div class="flex items-center justify-between mb-6">
-                            <h3 class="text-2xl font-bold text-gray-900 flex items-center">
-                                <svg class="w-6 h-6 mr-3 text-blue-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <path d="M17.8 19.2 16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2c-.5-.1-.9.1-1.1.5l-.3.5c-.2.5-.1 1 .3 1.3L9 12l-2 3H4l-1 1 3 2 2 3 1-1v-3l3-2 3.5 5.3c.3.4.8.5 1.3.3l.5-.2c.4-.3.6-.7.5-1.2z"/>
-                                </svg>
-                                Travel Cost Savings
-                            </h3>
-                        </div>
-                        <div class="grid md:grid-cols-2 gap-6">
-                            <div id="virtualEventsCard" class="bg-white border-2 border-blue-200 rounded-xl p-6 shadow-sm transition-all">
-                                <div class="flex items-center justify-between mb-4">
-                                    <h4 class="text-lg font-bold text-gray-900">Virtual Events</h4>
-                                    <button onclick="toggleSection('virtualEvents')" id="virtualEventsBtn" class="flex items-center gap-2 px-3 py-1 rounded-md text-sm font-medium bg-blue-100 text-blue-700 hover:bg-blue-200 transition-all">
-                                        <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                            <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
-                                            <circle cx="12" cy="12" r="3"/>
-                                        </svg>
-                                        Enabled
-                                    </button>
-                                </div>
-                                <p class="text-gray-600 mb-4 font-medium">Replace in-person events with virtual collaboration</p>
-                                <div class="text-2xl font-bold text-blue-600" id="virtualEvents">$6,000</div>
-                            </div>
-                            <div id="workshopsCard" class="bg-white border-2 border-blue-200 rounded-xl p-6 shadow-sm transition-all">
-                                <div class="flex items-center justify-between mb-4">
-                                    <h4 class="text-lg font-bold text-gray-900">Workshop Collaboration</h4>
-                                    <button onclick="toggleSection('workshops')" id="workshopsBtn" class="flex items-center gap-2 px-3 py-1 rounded-md text-sm font-medium bg-blue-100 text-blue-700 hover:bg-blue-200 transition-all">
-                                        <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                            <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
-                                            <circle cx="12" cy="12" r="3"/>
-                                        </svg>
-                                        Enabled
-                                    </button>
-                                </div>
-                                <p class="text-gray-600 mb-4 font-medium">Online workshops replace travel</p>
-                                <div class="text-2xl font-bold text-blue-600" id="workshops">$3,500</div>
-                            </div>
-                        </div>
                     </div>
 
                     <!-- Assumptions -->
@@ -328,6 +331,7 @@
                             <p>• Results may vary based on organization size, industry, and implementation</p>
                             <p>• Conservative estimates used for percentage of users affected by each benefit</p>
                             <p>• Annual salary converted to hourly rate using 2,080 hours (40 hours/week × 52 weeks)</p>
+                            <p>• Use the toggle controls to enable only the sections relevant to your organization</p>
                         </div>
                     </div>
                 </div>
